@@ -46,9 +46,12 @@ shinyUI(fluidPage(
                      station at each year."),
              tags$li(strong("Map."),
                      "A map showing the water bottle filling stations on Homewood
-                     campus."),
+                     campus. The user can use the dropdown menu to select a year
+                     to display."),
              tags$li(strong("Time plot."),
-                     "A time plot showing the bottle counts from 2016 to 2019."),
+                     "A time plot showing the bottle counts from 2016 to 2019.
+                     The user can choose from a group of checkboxes to select
+                     the building types to display."),
              
              ## Author
              h3("Author"),
@@ -79,7 +82,7 @@ shinyUI(fluidPage(
              wellPanel(
                checkboxGroupInput(
                  inputId = "plot.type",
-                 label = "Building type", 
+                 label = "Building Type", 
                  choices = c("Lecture hall", "Residence hall", "Other", "Total"),
                  selected = c("Lecture hall", "Residence hall", "Other", "Total"),
                  inline = TRUE
