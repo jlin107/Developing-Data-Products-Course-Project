@@ -1,0 +1,54 @@
+---
+title: <font size = "8">Usage of Water Bottle Filling Stations on the Johns Hopkins University Homewood Campus</font>
+author: "John Lin"
+date: "6/24/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
+data <- read.csv("data.csv", check.names = FALSE)
+```
+
+## Background
+
+Johns Hopkins University is committed to sustainable water systems.
+
+Beginning in 2013, over 60 water bottle filling stations were installed on Homewood campus. 
+
+This Shiny app examines the usage of the water bottle filling stations on Homewood from 2016 to 2019.
+
+## Shiny app
+
+This Shiny app contains 4 tabs:
+
+* **About this site.** Background information and instructions on how to navigate the site.
+
+* **Data.** A data spreadsheet showing the bottle count for each filling station at each year.
+
+* **Map.** A map showing the water bottle filling stations on Homewood campus. The user can use the dropdown menu to select a year to display.
+
+* **Time plot.** A time plot showing the bottle counts from 2016 to 2019. The user can choose from a group of checkboxes to select the building types to display.
+
+## Example R code: Map
+
+```{r, echo = TRUE, results = "hide", message = FALSE}
+pal <- colorFactor(
+    palette = c("red", "darkgreen", "blue"),
+    levels = c("Lecture hall", "Residence hall", "Other")
+  )
+my.map <- data %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(weight = 3, radius = sqrt(data[,8]/200),
+                   color = ~pal(data$`Building Type`),
+                   popup = paste("<strong>", data$Location, "</strong>", "<br/>",                                  "Bottle Count (2019): ", data[,8], sep = "")) %>%
+  addLegend(labels = c("Lecture hall", "Residence hall", "Other"),
+            col = c("red", "darkgreen", "blue"))
+```
+
+## Example output: Map
+```{r}
+my.map
+```
