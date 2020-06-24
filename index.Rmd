@@ -15,7 +15,7 @@ data <- read.csv("data.csv", check.names = FALSE)
 
 Johns Hopkins University is committed to sustainable water systems.
 
-Beginning in 2013, over 60 water bottle filling stations were installed on Homewood campus. 
+Beginning in 2013, over <span class="blue2">**60**</span> water bottle filling stations were installed on Homewood campus. 
 
 This Shiny app examines the usage of the water bottle filling stations on Homewood from 2016 to 2019.
 
@@ -23,15 +23,17 @@ This Shiny app examines the usage of the water bottle filling stations on Homewo
 
 This Shiny app contains 4 tabs:
 
-* **About this site.** Background information and instructions on how to navigate the site.
+* <span class="blue2">**About this site.**</span> Background information and instructions on how to navigate the site.
 
-* **Data.** A data spreadsheet showing the bottle count for each filling station at each year.
+* <span class="blue2">**Data.**</span> A data spreadsheet showing the bottle count for each filling station at each year.
 
-* **Map.** A map showing the water bottle filling stations on Homewood campus. The user can use the dropdown menu to select a year to display.
+* <span class="blue2">**Map.**</span> A map showing the water bottle filling stations on Homewood campus. The user can use the dropdown menu to select a year to display.
 
-* **Time plot.** A time plot showing the bottle counts from 2016 to 2019. The user can choose from a group of checkboxes to select the building types to display.
+* <span class="blue2">**Time plot.**</span> A time plot showing the bottle counts from 2016 to 2019. The user can choose from a group of checkboxes to select the building types to display.
 
 ## Example R code: Map
+
+Let's generate a map displaying the filling stations on Homewood campus. Let the size of the circle be proportional to the bottle count in 2019.
 
 ```{r, echo = TRUE, results = "hide", message = FALSE}
 pal <- colorFactor(
